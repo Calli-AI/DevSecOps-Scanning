@@ -34,7 +34,6 @@ jobs:
 
       # Deploy Terraform
       - name: Deploy Terraform
-       c
 
       # Get WordPress instance public IP
       - name: Get WordPress Instance IP
