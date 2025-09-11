@@ -14,9 +14,9 @@ def get_user_data(user_id):
     connection = sqlite3.connect('example.db')
     cursor = connection.cursor()
 
-    # Vulnerable to SQL Injection
-    query = f"SELECT * FROM users WHERE id = '{user_id}'"
-    cursor.execute(query)
+    # Fixed: Use parameterized query to prevent SQL Injection
+    query = "SELECT * FROM users WHERE id = ?"
+    cursor.execute(query, (user_id,))
     return cursor.fetchall()
 
 # 2. **Broken Authentication**
